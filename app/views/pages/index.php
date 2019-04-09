@@ -4,8 +4,4 @@
 <h1>This is pages/index</h1>
 
 
-<ul>
-<li>
-    <a href="<?php echo URLROOT;?>/users/teachersLogin" >Teachers Login</a>
-</li>
-</ul>
+<?php require APPROOT.'\views\inc\navbar.php'; ?>
