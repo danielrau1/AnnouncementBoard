@@ -13,10 +13,10 @@ class Posts extends Controller{
 
     public function index(){
         //Get posts
-       // $posts = $this->postModel->getPosts();
+        $posts = $this->postModel->getPosts($_SESSION['tid']);
 
         $data=[
-            'posts'=>'posts here'
+            'posts'=>$posts
         ];
 
         $this->view('posts/index', $data);
@@ -27,25 +27,20 @@ class Posts extends Controller{
             //sanitize
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $data=[
-                'title'=> trim($_POST['title']),
-                'bodt'=>trim($_POST['bodt']),
-                'user_id'=>$_SESSION['user_id'],
-                'title_err'=>'',
-                'bodt_err'=>''
+                'tid'=> $_SESSION['tid'],
+                'pbody'=>trim($_POST['pbody']),
+                'pbody_err'=>'',
+
             ];
 
-            //validate the data
-            if(empty($data['title']))
+
+            if(empty($data['pbody']))
             {
-                $data['title_err']='enter title';
-            }
-            if(empty($data['bodt']))
-            {
-                $data['bodt_err']='enter bodt text';
+                $data['pbody_err']='enter body text';
             }
 
             //make sure no errors
-            if(empty($data['title_err']) AND empty($data['bodt_err']) ){
+            if(empty($data['pbody_err']) ){
                 //validated
                 if($this->postModel->addPost($data)){
 
@@ -60,8 +55,10 @@ class Posts extends Controller{
 
         }else{
             $data=[
-                'title'=> '',
-                'bodt'=>''
+                'tid'=> '',
+                'pbody'=>'',
+                'pbody_err'=>'',
+
             ];
             $this->view('posts/add',$data);
         }
