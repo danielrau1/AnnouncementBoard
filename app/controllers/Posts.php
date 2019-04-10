@@ -9,7 +9,16 @@ class Posts extends Controller{
         $this->postModel = $this->model('Post');
        // $this->userModel = $this->model('User');
 
+
+
     }
+
+
+
+
+
+
+
 
     public function index(){
         //Get posts
@@ -18,8 +27,19 @@ class Posts extends Controller{
             $data = [
                 'posts' => $posts
             ];
+            $this->view('posts/index', $data);
         }
-        $this->view('posts/index', $data);
+
+
+        // Get all posts and input when nobody is registered
+        if(!isset($_SESSION['tid']) and !isset($_SESSION['sid']) ) {
+            $posts = $this->postModel->getAllPosts();
+            $data2 = [
+                'posts' => $posts
+            ];
+
+        }
+
     }
 
     public function add(){
@@ -65,4 +85,12 @@ class Posts extends Controller{
 
     }
 
+
+    public function assignments()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $data=["message"=>"hello"];
+            $this->view('posts/assignments',$data);
+        }
+    }
 }

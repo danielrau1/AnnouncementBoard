@@ -21,12 +21,24 @@ class Post{
         }
     }
 
-    public function getPosts($tid){
+    public function getPosts($tid)
+    {
         $this->db->query('SELECT * FROM posts WHERE tid = :tid');
- // gives an array of objects
+        // gives an array of objects
         $this->db->bind(':tid', $tid);
         $results = $this->db->resultSet(); // used to return more than 1 row
         return $results;
     }
 
+
+    public function getAllPosts(){
+         $this->db->query('SELECT * FROM posts ORDER BY pid DESC');
+        // gives an array of objects
+        $results = $this->db->resultSet(); // used to return more than 1 row
+        return $results;
+    }
+
+
 }
+
+

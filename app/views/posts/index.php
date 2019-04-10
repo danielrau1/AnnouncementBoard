@@ -7,7 +7,7 @@
 echo "<br>";
 
 ?>
-
+<h4><u>POSTS</u></h4>
 <a href="<?php echo URLROOT; ?>/posts/add" >Add Post</a>
 
 <?php foreach($data['posts'] as $post): ?>
@@ -18,7 +18,19 @@ echo "<br>";
     <p><?php echo $post->pbody ?></p>
 </div>
 
-<?php endforeach;} ?>
+<?php endforeach;
+
+     require 'assignments.php';
+?>
+
+
+
+
+
+
+
+ <?php
+ } ?>
 
 <?php
 if(isset($_SESSION['susername'])) {
