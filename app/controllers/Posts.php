@@ -232,7 +232,7 @@ class Posts extends Controller{
             //make sure no errors
             if(empty($data['grade_err']) ){
 
-                //validated
+                //validatedgdg
                 if($this->postModel->gradeSubmissions($data)){
 
                     redirect('posts/getSubmissions');
