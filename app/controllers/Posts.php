@@ -13,12 +13,12 @@ class Posts extends Controller{
 
     public function index(){
         //Get posts
-        $posts = $this->postModel->getPosts($_SESSION['tid']);
-
-        $data=[
-            'posts'=>$posts
-        ];
-
+        if(isset($_SESSION['tid'])) {
+            $posts = $this->postModel->getPosts($_SESSION['tid']);
+            $data = [
+                'posts' => $posts
+            ];
+        }
         $this->view('posts/index', $data);
     }
 

@@ -58,4 +58,69 @@ class User{
 
     /**************************************************************************/
 
+
+
+
+
+
+
+
+
+
+
+
+
+    /**************************** STUDENT LOGIN ******************************/
+    // Find teacher by username
+    public function findStudentByUsername($susername){
+        $this->db->query('SELECT * FROM students WHERE susername = :susername');
+        // Bind value
+        $this->db->bind(':susername', $susername);
+        $row = $this->db->single();
+        // Check row
+        if($this->db->rowCount() > 0){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    // Find teacher by password
+    public function findStudentByPassword($spassword){
+        $this->db->query('SELECT * FROM students WHERE spassword = :spassword');
+        // Bind value
+        $this->db->bind(':spassword', $spassword);
+        $row = $this->db->single();
+        // Check row
+        if($this->db->rowCount() > 0){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+// Login teacher once know that teacher username and password exist
+
+    //Login user
+    public function sLogin($susername, $spassword){
+        $this->db->query('SELECT * FROM students WHERE (susername= :susername and spassword=:spassword)');
+        $this->db->bind(':susername', $susername);
+        $this->db->bind(':spassword', $spassword);
+        $row =$this->db->single();
+        $hashed_spassword = $row->spassword;
+        $hashed_susername = $row->susername;
+        if($spassword== $hashed_spassword and $susername==$hashed_susername){
+            return $row;
+        }else{
+            return false;
+        }
+    }
+
+    /**************************************************************************/
+
+
+
+
+
 }
