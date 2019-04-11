@@ -50,6 +50,8 @@ class User{
         $hashed_tpassword = $row->tpassword;
         $hashed_tusername = $row->tusername;
         if($tpassword== $hashed_tpassword and $tusername==$hashed_tusername){
+            $rowJson = json_encode($row);
+            //echo $rowJson;
             return $row;
         }else{
             return false;
