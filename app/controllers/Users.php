@@ -73,6 +73,8 @@ class Users extends Controller
             } else {
                 //Load view with errors
                 $this->view('users/teachersLogin', $data);
+
+
             }
 
         } else {

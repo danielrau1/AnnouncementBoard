@@ -16,4 +16,4 @@
 
 </form>
 
-<?php echo $data['message'];  ?>
+
