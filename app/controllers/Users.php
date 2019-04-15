@@ -216,4 +216,12 @@ class Users extends Controller
     }
 
 
+    public function click($data1,$data2){
+        echo $data1."<br>";
+        echo $data2."<br>";
+
+        echo $data1+$data2;
+    }
+
+
 }

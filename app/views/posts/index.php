@@ -1,12 +1,17 @@
 <?php
  require APPROOT.'\views\inc\navbar.php';
+?>
 
+<a href="<?php echo URLROOT; ?>/users/click/50/100" >Click here</a><br>
 
+<?php
  if(isset($_SESSION['tusername'])){
  echo "Hello teacher ".$_SESSION['tusername']." ID: ".$_SESSION['tid'];
 echo "<br>";
 
 ?>
+
+
      <a href="<?php echo URLROOT; ?>/posts/add" >Add Post</a>
      <a href="<?php echo URLROOT; ?>/posts/assignments" >Add Assignment</a>
      <a href="<?php echo URLROOT; ?>/posts/getSubmissions" >Grade Assignments</a>

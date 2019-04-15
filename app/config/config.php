@@ -15,4 +15,4 @@ define('SITENAME','AnnouncementBoard');
 define('DB_HOST','localhost:81'); // Make sure you type the right local host !!!
 define ('DB_USER','root');
 define ('DB_PASS','');
-define('DB_NAME','AnnouncementBoard'); // create this db in phpmyadmin
+define('DB_NAME','AnnouncementBoardphp'); // create this db in phpmyadmin
